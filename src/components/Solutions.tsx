@@ -136,7 +136,7 @@ export default function Solutions() {
                     <Image src={src} alt={panel.title} fill style={{ objectFit: 'contain' }} sizes="100vw" />
                   </div>
                 ))}
-                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent" />
+                <div className="absolute inset-0 pointer-events-none bg-linear-to-t from-zinc-950/90 via-zinc-950/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   {panel.images.length > 1 && (
                     <div className="flex gap-1.5 mb-4">
@@ -193,7 +193,7 @@ export default function Solutions() {
                     key={src}
                     className={`absolute transition-all duration-500
                       ${isActive ? 'opacity-100 scale-100 inset-8' : 'opacity-40 scale-105 inset-4'}
-                      ${i === currentImg ? '' : '!opacity-0'}`}
+                      ${i === currentImg ? '' : 'opacity-0!'}`}
                   >
                     <Image
                       src={src}
@@ -206,7 +206,7 @@ export default function Solutions() {
                 ))}
 
                 {/* ── Gradient overlay ── */}
-                <div className={`absolute inset-0 pointer-events-none transition-all duration-700 bg-gradient-to-t ${isActive ? 'from-zinc-950/90 via-zinc-950/20 to-transparent' : 'from-zinc-950/80 via-zinc-950/40 to-zinc-950/20'}`} />
+                <div className={`absolute inset-0 pointer-events-none transition-all duration-700 bg-linear-to-t ${isActive ? 'from-zinc-950/90 via-zinc-950/20 to-transparent' : 'from-zinc-950/80 via-zinc-950/40 to-zinc-950/20'}`} />
 
                 {/* ── Inactive label ── */}
                 <div className={`absolute inset-0 flex flex-col justify-end p-5 transition-all duration-500 ${isActive ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>

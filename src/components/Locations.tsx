@@ -74,7 +74,7 @@ export default function Locations() {
                   title={`Mapa da filial ${city}`}
                   allowFullScreen
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-t from-gray-900/40 to-transparent pointer-events-none" />
                 <div className="absolute top-4 left-4 bg-[#F5B800] px-3 py-1.5 rounded-md pointer-events-none">
                   <span className="text-xs font-bold text-gray-900 uppercase tracking-wide">
                     {city}, {state}
