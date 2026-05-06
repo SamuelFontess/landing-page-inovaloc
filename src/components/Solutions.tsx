@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 
 type Spec  = { label: string; value: string }
@@ -128,10 +129,12 @@ export default function Solutions() {
             return (
               <div onClick={handleTap} className="relative overflow-hidden rounded-2xl bg-zinc-900 cursor-pointer" style={{ height: 440 }}>
                 {panel.images.map((src, i) => (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img key={src} src={src} alt={panel.title}
-                    className={`absolute inset-0 w-full h-full object-contain p-6 transition-opacity duration-500 ${i === currentImg ? 'opacity-100' : 'opacity-0'}`}
-                  />
+                  <div
+                    key={src}
+                    className={`absolute inset-6 transition-opacity duration-500 ${i === currentImg ? 'opacity-100' : 'opacity-0'}`}
+                  >
+                    <Image src={src} alt={panel.title} fill style={{ objectFit: 'contain' }} sizes="100vw" />
+                  </div>
                 ))}
                 <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -186,15 +189,20 @@ export default function Solutions() {
               >
                 {/* ── Images ── */}
                 {panel.images.map((src, i) => (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img
+                  <div
                     key={src}
-                    src={src}
-                    alt={panel.title}
-                    className={`absolute inset-0 w-full h-full object-contain transition-all duration-500
-                      ${isActive ? 'opacity-100 scale-100 p-8' : 'opacity-40 scale-105 p-4'}
+                    className={`absolute transition-all duration-500
+                      ${isActive ? 'opacity-100 scale-100 inset-8' : 'opacity-40 scale-105 inset-4'}
                       ${i === currentImg ? '' : '!opacity-0'}`}
-                  />
+                  >
+                    <Image
+                      src={src}
+                      alt={panel.title}
+                      fill
+                      style={{ objectFit: 'contain' }}
+                      sizes="(max-width: 1280px) 50vw, 640px"
+                    />
+                  </div>
                 ))}
 
                 {/* ── Gradient overlay ── */}
