@@ -21,12 +21,12 @@ export default function TrustedBy() {
       </div>
 
       <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-linear-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-linear-to-l from-white to-transparent z-10 pointer-events-none" />
 
         <div className="flex animate-marquee">
           {doubled.map((name, i) => (
-            <div key={`${name}-${i}`} className="flex-shrink-0 mx-3">
+            <div key={`${name}-${i}`} className="shrink-0 mx-3">
               <div className="px-7 py-3.5 border border-gray-200 rounded-lg bg-white hover:border-gray-300 transition-colors cursor-default">
                 <span className="text-sm font-semibold text-gray-400 select-none whitespace-nowrap">
                   {name}
