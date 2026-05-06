@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, type FormEvent } from 'react'
+import { useState } from 'react'
 
 type FormData = {
   name: string
@@ -113,7 +113,7 @@ export default function ContactForm() {
     if (errors[field]) setErrors(prev => ({ ...prev, [field]: undefined }))
   }
 
-  function handleSubmit(e: FormEvent) {
+  function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault()
     const errs = validate(form)
     if (Object.keys(errs).length > 0) { setErrors(errs); return }
@@ -263,7 +263,7 @@ export default function ContactForm() {
                 placeholder="Descreva como podemos ajudar..."
                 value={form.message}
                 onChange={e => handleChange('message', e.target.value)}
-                className="form-input resize-none min-h-[8rem]"
+                className="form-input resize-none min-h-32"
               />
             </div>
 
