@@ -62,7 +62,9 @@ export default function Navbar() {
             <button
               onClick={() => setMobileOpen(o => !o)}
               className="lg:hidden p-2 text-gray-600 hover:text-gray-900 transition-colors"
-              aria-label="Abrir menu"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
+              aria-label={mobileOpen ? 'Fechar menu' : 'Abrir menu'}
             >
               {mobileOpen ? (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -80,6 +82,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
+        id="mobile-menu"
         className={`absolute top-[72px] inset-x-0 bg-white border-b border-gray-100 shadow-lg overflow-hidden transition-all duration-300 lg:hidden ${
           mobileOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}

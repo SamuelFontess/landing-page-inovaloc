@@ -197,68 +197,77 @@ export default function ContactForm() {
           >
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-gray-500 mb-1.5">
+                <label htmlFor="field-name" className="block text-xs font-semibold text-gray-500 mb-1.5">
                   Nome <span className="text-[#F5B800]">*</span>
                 </label>
                 <input
+                  id="field-name"
                   type="text"
                   placeholder="João Silva"
                   value={form.name}
                   onChange={e => handleChange('name', e.target.value)}
+                  aria-describedby={errors.name ? 'field-name-error' : undefined}
                   className={`form-input ${errors.name ? 'error' : ''}`}
                 />
-                {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
+                {errors.name && <p id="field-name-error" className="mt-1 text-xs text-red-500">{errors.name}</p>}
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-500 mb-1.5">
+                <label htmlFor="field-phone" className="block text-xs font-semibold text-gray-500 mb-1.5">
                   Telefone <span className="text-[#F5B800]">*</span>
                 </label>
                 <input
+                  id="field-phone"
                   type="tel"
                   placeholder="(84) 3064-5999"
                   value={form.phone}
                   onChange={e => handleChange('phone', e.target.value)}
+                  aria-describedby={errors.phone ? 'field-phone-error' : undefined}
                   className={`form-input ${errors.phone ? 'error' : ''}`}
                 />
-                {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone}</p>}
+                {errors.phone && <p id="field-phone-error" className="mt-1 text-xs text-red-500">{errors.phone}</p>}
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1.5">
+              <label htmlFor="field-email" className="block text-xs font-semibold text-gray-500 mb-1.5">
                 E-mail <span className="text-[#F5B800]">*</span>
               </label>
               <input
+                id="field-email"
                 type="email"
                 placeholder="joao@empresa.com"
                 value={form.email}
                 onChange={e => handleChange('email', e.target.value)}
+                aria-describedby={errors.email ? 'field-email-error' : undefined}
                 className={`form-input ${errors.email ? 'error' : ''}`}
               />
-              {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
+              {errors.email && <p id="field-email-error" className="mt-1 text-xs text-red-500">{errors.email}</p>}
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1.5">
+              <label htmlFor="field-subject" className="block text-xs font-semibold text-gray-500 mb-1.5">
                 Assunto <span className="text-[#F5B800]">*</span>
               </label>
               <select
+                id="field-subject"
                 value={form.subject}
                 onChange={e => handleChange('subject', e.target.value)}
+                aria-describedby={errors.subject ? 'field-subject-error' : undefined}
                 className={`form-input ${errors.subject ? 'error' : ''}`}
               >
                 <option value="">Selecionar...</option>
                 {SUBJECT_OPTIONS.map(s => <option key={s} value={s}>{s}</option>)}
               </select>
-              {errors.subject && <p className="mt-1 text-xs text-red-500">{errors.subject}</p>}
+              {errors.subject && <p id="field-subject-error" className="mt-1 text-xs text-red-500">{errors.subject}</p>}
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-gray-500 mb-1.5">
+              <label htmlFor="field-message" className="block text-xs font-semibold text-gray-500 mb-1.5">
                 Mensagem
               </label>
               <textarea
+                id="field-message"
                 rows={5}
                 placeholder="Descreva como podemos ajudar..."
                 value={form.message}

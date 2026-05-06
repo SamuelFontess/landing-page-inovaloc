@@ -93,7 +93,7 @@ export default function Solutions() {
     if (images.length < 2) return
     const rect  = e.currentTarget.getBoundingClientRect()
     const ratio = (e.clientX - rect.left) / rect.width
-    const next  = Math.min(Math.floor(ratio * images.length), images.length - 1)
+    const next  = Math.min(Math.max(0, Math.floor(ratio * images.length)), images.length - 1)
     setImgIdx(prev => ({ ...prev, [PANELS[panelIdx].id]: next }))
   }
 
@@ -106,12 +106,71 @@ export default function Solutions() {
           <p className="text-xs font-semibold uppercase tracking-widest text-[#F5B800] mb-4">Catálogo</p>
           <h2 className="text-3xl font-bold text-zinc-900 mb-3">Nossas Soluções</h2>
           <p className="text-zinc-500 max-w-xl text-sm leading-relaxed">
-            Passe o mouse em cada modelo para expandir. Mova o cursor para os lados para alternar as fotos.
+            <span className="hidden md:inline">Passe o mouse em cada modelo para expandir. Mova o cursor para os lados para alternar as fotos.</span>
+            <span className="md:hidden">Toque no card para navegar entre as fotos. Use os pontos abaixo para trocar de produto.</span>
           </p>
         </div>
 
-        {/* Accordion */}
-        <div className="flex gap-3" style={{ height: 480 }}>
+        {/* Mobile: card único do painel ativo */}
+        <div className="md:hidden mb-6">
+          {(() => {
+            const panel      = PANELS[active]
+            const currentImg = imgIdx[panel.id] ?? 0
+            function handleTap(e: React.MouseEvent<HTMLDivElement>) {
+              if (panel.images.length < 2) return
+              const rect    = e.currentTarget.getBoundingClientRect()
+              const isRight = e.clientX - rect.left > rect.width / 2
+              setImgIdx(prev => {
+                const curr = prev[panel.id] ?? 0
+                return { ...prev, [panel.id]: isRight ? Math.min(curr + 1, panel.images.length - 1) : Math.max(curr - 1, 0) }
+              })
+            }
+            return (
+              <div onClick={handleTap} className="relative overflow-hidden rounded-2xl bg-zinc-900 cursor-pointer" style={{ height: 440 }}>
+                {panel.images.map((src, i) => (
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img key={src} src={src} alt={panel.title}
+                    className={`absolute inset-0 w-full h-full object-contain p-6 transition-opacity duration-500 ${i === currentImg ? 'opacity-100' : 'opacity-0'}`}
+                  />
+                ))}
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  {panel.images.length > 1 && (
+                    <div className="flex gap-1.5 mb-4">
+                      {panel.images.map((_, i) => (
+                        <div key={i} className={`h-[3px] rounded-full transition-all duration-300 ${i === currentImg ? 'bg-[#F5B800] w-6' : 'bg-white/25 w-3'}`} />
+                      ))}
+                    </div>
+                  )}
+                  <span className="inline-block text-[9px] font-bold uppercase tracking-widest text-[#F5B800] border border-[#F5B800]/30 px-3 py-1 rounded mb-3">
+                    {panel.badge}
+                  </span>
+                  <h3 className="text-xl font-bold text-white mb-2 leading-snug">{panel.title}</h3>
+                  <p className="text-zinc-300 text-sm leading-relaxed mb-4">{panel.description}</p>
+                  {panel.specs.length > 0 && (
+                    <div className="flex flex-wrap gap-4 mb-5">
+                      {panel.specs.map(s => (
+                        <span key={s.label} className="text-xs">
+                          <span className="font-bold text-white">{s.value}</span>
+                          <span className="text-zinc-400 ml-1">{s.label}</span>
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  <a href="#contato" onClick={e => e.stopPropagation()} className="inline-flex items-center gap-2 text-sm font-semibold text-[#F5B800] hover:text-white transition-colors">
+                    Solicitar orçamento <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
+                {panel.images.length > 1 && (
+                  <p className="absolute top-4 right-4 text-[9px] text-white/25 uppercase tracking-widest select-none pointer-events-none">← toque →</p>
+                )}
+              </div>
+            )
+          })()}
+        </div>
+
+        {/* Desktop: acordeão horizontal */}
+        <div className="hidden md:flex gap-3" style={{ height: 480 }}>
           {PANELS.map((panel, idx) => {
             const isActive   = active === idx
             const currentImg = imgIdx[panel.id] ?? 0

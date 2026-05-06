@@ -69,6 +69,15 @@ body {
 ::-webkit-scrollbar-track  { background: #f1f1f1; }
 ::-webkit-scrollbar-thumb  { background: #F5B800; border-radius: 10px; }
 
+/* ── Acessibilidade: reduz movimento ─────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-fadeUp  { animation: none; opacity: 1; transform: none; }
+  .animate-marquee { animation: none; }
+  .animate-float   { animation: none; transform: none; }
+}
+
 /* ── Form inputs ─────────────────────────────────────────── */
 
 .form-input {
