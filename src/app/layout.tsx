@@ -43,7 +43,6 @@ const jsonLd = {
   logo: 'https://www.inovaloc.com.br/logo2.png',
   image: 'https://www.inovaloc.com.br/logo2.png',
   priceRange: '$$',
-  servesCuisine: undefined,
   areaServed: { '@type': 'State', name: 'Rio Grande do Norte', identifier: 'BR-RN' },
   address: [
     {
@@ -56,10 +55,10 @@ const jsonLd = {
     },
     {
       '@type': 'PostalAddress',
-      streetAddress: 'Rua Cícero Rodrigues Gabriel, SN, BR 304',
+      streetAddress: 'Av. Mota Neto, 497 - Aeroporto',
       addressLocality: 'Mossoró',
       addressRegion: 'RN',
-      postalCode: '59607-400',
+      postalCode: '59607-000',
       addressCountry: 'BR',
     },
   ],
