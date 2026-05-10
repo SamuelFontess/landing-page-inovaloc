@@ -50,14 +50,6 @@ body {
 .animate-fadeUp  { opacity: 0; animation: fadeUp  0.6s ease forwards; }
 .animate-float   {             animation: float   5s ease-in-out infinite; }
 
-/* ── Marquee logo sizes ──────────────────────────────────── */
-.logo-wide, .logo-cover { position: relative; width: 140px; height: 56px; margin: 0 20px; }
-.logo-square            { position: relative; width:  56px; height: 56px; margin: 0 20px; }
-
-@media (max-width: 640px) {
-  .logo-wide, .logo-cover { width: 90px; height: 36px; margin: 0 12px; }
-  .logo-square            { width: 36px; height: 36px; margin: 0 12px; }
-}
 
 .delay-100  { animation-delay: 100ms; }
 .delay-200  { animation-delay: 200ms; }

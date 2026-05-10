@@ -4,21 +4,33 @@ import Marquee from 'react-fast-marquee'
 import Image from 'next/image'
 
 type Logo = {
-  src:            string
-  alt:            string
-  shape:          'wide' | 'square' | 'cover'
-  coverPosition?: string
+  src:        string
+  alt:        string
+  w:          number
+  h:          number
+  imgClass?:  string
+  coverPos?:  string
 }
 
 const LOGOS: Logo[] = [
-  { src: '/logos/petroreconcavo-logo.png',   alt: 'PetroRecôncavo',      shape: 'wide'   },
-  { src: '/logos/alianca-logo.png',           alt: 'Aliança Energia',    shape: 'wide'   },
-  { src: '/logos/bravaenergia-logo.png',      alt: 'Brava Energia',      shape: 'wide'   },
-  { src: '/logos/voltalia-logo.png',          alt: 'Voltalia',           shape: 'wide'   },
-  { src: '/logos/prf-logo.png',               alt: 'PRF',                shape: 'wide'   },
-  { src: '/logos/uninassau-logo.png',         alt: 'Uninassau',          shape: 'square' },
-  { src: '/logos/prefeituramossoro-logo.png', alt: 'Prefeitura Mossoró', shape: 'square' },
-  { src: '/logos/atacadao-logo.png',          alt: 'Atacadão',           shape: 'cover', coverPosition: '50% 55%' },
+  { src: '/logos/alianca-logo.png',           alt: 'Aliança Energia',    w: 637,  h: 163 },
+  { src: '/logos/bravaenergia-logo.png',      alt: 'Brava Energia',      w: 1101, h: 373 },
+  { src: '/logos/petroreconcavo-logo.png',    alt: 'PetroRecôncavo',     w: 600,  h: 338 },
+  { src: '/logos/voltalia-logo.png',          alt: 'Voltalia',           w: 285,  h: 177 },
+  { src: '/logos/prf-logo.png',               alt: 'PRF',                w: 600,  h: 367 },
+  {
+    src: '/logos/uninassau-logo.png',
+    alt: 'Uninassau',
+    w: 600, h: 600,
+    imgClass: 'h-16 sm:h-20 w-auto object-contain',
+  },
+  {
+    src: '/logos/prefeituramossoro-logo.png',
+    alt: 'Prefeitura Mossoró',
+    w: 900, h: 900,
+    imgClass: 'h-16 sm:h-20 w-auto object-contain',
+  },
+  { src: '/logos/atacadao-logo.png', alt: 'Atacadão', w: 400, h: 400 },
 ]
 
 export default function TrustedBy() {
@@ -30,22 +42,17 @@ export default function TrustedBy() {
         </p>
       </div>
 
-      <Marquee
-        gradient
-        gradientColor="white"
-        gradientWidth={80}
-        speed={45}
-        pauseOnHover
-      >
+      <Marquee gradient gradientColor="white" gradientWidth={80} speed={40} pauseOnHover>
         {LOGOS.map((logo) => (
-          <div key={logo.alt} className={`logo-${logo.shape}`}>
+          <div key={logo.alt} className="flex items-center px-8 sm:px-12">
             <Image
               src={logo.src}
               alt={logo.alt}
-              fill
-              sizes="(max-width: 640px) 90px, 140px"
-              className={logo.shape === 'cover' ? 'object-cover' : 'object-contain'}
-              style={logo.coverPosition ? { objectPosition: logo.coverPosition } : undefined}
+              width={logo.w}
+              height={logo.h}
+              sizes="(max-width: 640px) 200px, 320px"
+              className={logo.imgClass ?? 'h-11 sm:h-14 w-auto object-contain'}
+              style={logo.coverPos ? { objectPosition: logo.coverPos } : undefined}
             />
           </div>
         ))}
