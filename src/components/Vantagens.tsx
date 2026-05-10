@@ -1,47 +1,25 @@
+import { LayoutGrid, Truck, ShieldCheck, Zap } from 'lucide-react'
+
 const ITEMS = [
   {
     title: 'Versatilidade',
     description: 'Os containers permitem a criação de espaços funcionais e adaptáveis para qualquer tipo de operação.',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <rect x="3" y="3" width="9" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.7"/>
-        <rect x="16" y="3" width="9" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.7"/>
-        <rect x="3" y="16" width="9" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.7"/>
-        <rect x="16" y="16" width="9" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.7"/>
-      </svg>
-    ),
+    icon: <LayoutGrid size={28} />,
   },
   {
     title: 'Mobilidade',
     description: 'Precisa se mudar? Sem problemas. Com containers você realiza a mudança com facilidade e rapidez.',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <path d="M4 18h16M4 18l3-8h10l3 8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="9" cy="21" r="2" stroke="currentColor" strokeWidth="1.7"/>
-        <circle cx="19" cy="21" r="2" stroke="currentColor" strokeWidth="1.7"/>
-        <path d="M17 10V7H11v3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <Truck size={28} />,
   },
   {
     title: 'Durabilidade',
     description: 'Fabricados em aço Corten, os containers possuem vida útil prolongada e resistência superior às intempéries.',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <path d="M14 3l9 4v7c0 5-3.5 9-9 11-5.5-2-9-6-9-11V7l9-4z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M10 14l2.5 2.5 5.5-5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <ShieldCheck size={28} />,
   },
   {
     title: 'Rapidez',
     description: 'Economize tempo e dinheiro. A instalação é muito mais rápida do que a construção tradicional.',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <circle cx="14" cy="14" r="10" stroke="currentColor" strokeWidth="1.7"/>
-        <path d="M14 8v6l4 2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <Zap size={28} />,
   },
 ]
 
