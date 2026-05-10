@@ -41,7 +41,7 @@ export default function Hero() {
           <div className="animate-fadeUp delay-300 flex items-center justify-center">
             <div className="animate-float relative w-full max-w-[520px]">
               <Image
-                src="/container.png"
+                src="/products/container.png"
                 alt="Container InovaLoc"
                 width={700}
                 height={330}

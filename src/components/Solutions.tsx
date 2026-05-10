@@ -25,7 +25,7 @@ const PANELS: Panel[] = [
       { label: 'Largura',     value: '1,60 m' },
       { label: 'Altura',      value: '2,10 m' },
     ],
-    images: ['/express.png', '/express2.png'],
+    images: ['/products/express.png', '/products/express2.png'],
   },
   {
     id:          'hc-almoxarifado',
@@ -37,7 +37,7 @@ const PANELS: Panel[] = [
       { label: 'Largura',     value: '2,50 m' },
       { label: 'Altura',      value: '2,90 m' },
     ],
-    images: ['/hc-almoxarifado-1.png', '/hc-almoxarifado-2.png', '/hc-almoxarifado-3.jpg'],
+    images: ['/products/hc-almoxarifado-1.png', '/products/hc-almoxarifado-2.png', '/products/hc-almoxarifado-3.jpg'],
   },
   {
     id:          'escritorio-hc',
@@ -50,7 +50,7 @@ const PANELS: Panel[] = [
       { label: 'Altura',      value: '2,90 m' },
       { label: 'Ar-cond.',    value: '12.000 BTUs' },
     ],
-    images: ['/escritorio-hc-1.png', '/escritorio-hc-2.png', '/escritorio-hc-3.jpeg', '/escritorio-hc-4.jpeg'],
+    images: ['/products/escritorio-hc-1.png', '/products/escritorio-hc-2.png', '/products/escritorio-hc-3.jpeg', '/products/escritorio-hc-4.jpeg'],
   },
   {
     id:          'escritorio-wc-hc',
@@ -63,7 +63,7 @@ const PANELS: Panel[] = [
       { label: 'Altura',      value: '2,90 m' },
       { label: 'Ar-cond.',    value: '12.000 BTUs' },
     ],
-    images: ['/escritorio-wc-hc-1.png', '/escritorio-wc-hc-2.png', '/escritorio-wc-hc-3.jpeg', '/escritorio-wc-hc-4.jpeg'],
+    images: ['/products/escritorio-wc-hc-1.png', '/products/escritorio-wc-hc-2.png', '/products/escritorio-wc-hc-3.jpeg', '/products/escritorio-wc-hc-4.jpeg'],
   },
   {
     id:          'venda-hc',
@@ -74,7 +74,7 @@ const PANELS: Panel[] = [
       { label: '20 Pés', value: '6,00 m' },
       { label: '40 Pés', value: '12,00 m' },
     ],
-    images: ['/venda-hc-1.png', '/venda-hc-2.jpeg'],
+    images: ['/products/venda-hc-1.png', '/products/venda-hc-2.jpeg'],
   },
 ]
 
