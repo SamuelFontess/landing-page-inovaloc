@@ -25,8 +25,8 @@ const BRANCHES = [
     city: 'Mossoró',
     state: 'RN',
     label: 'Sede — Mossoró',
-    address: 'Rua Cícero Rodrigues Gabriel, SN, BR 304\nMossoró/RN · CEP 59.607-400',
-    mapQuery: 'Rua Cícero Rodrigues Gabriel, Mossoró, RN',
+    address: 'Av. Mota Neto, 497 - Aeroporto, \nMossoró/RN · CEP 59607-000', //Av. Mota Neto, 497 - Aeroporto, Mossoró - RN, 59607-000
+    mapQuery: 'Av. Mota Neto, 497 - Aeroporto, Mossoró, RN',
     phones: [
       { display: '(84) 99898-0445', href: 'tel:+5584998980445' },
       { display: '(84) 3064-5999', href: 'tel:+558430645999' },

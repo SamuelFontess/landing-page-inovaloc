@@ -1,8 +1,6 @@
 const HIGHLIGHTS = [
-  'Frota própria revisada',
   'Contratos flexíveis',
   'Atendimento consultivo',
-  'Entrega e instalação incluídas',
   'Suporte técnico pós-locação',
   'Personalização disponível',
 ]
