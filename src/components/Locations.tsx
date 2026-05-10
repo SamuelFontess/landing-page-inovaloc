@@ -25,8 +25,8 @@ const BRANCHES = [
     city: 'Mossoró',
     state: 'RN',
     label: 'Sede — Mossoró',
-    address: 'Rua Cícero Rodrigues Gabriel, SN, BR 304\nMossoró/RN · CEP 59.607-400',
-    mapQuery: 'Rua Cícero Rodrigues Gabriel, Mossoró, RN',
+    address: 'Av. Mota Neto, 497 - Aeroporto, \nMossoró/RN · CEP 59607-000', //Av. Mota Neto, 497 - Aeroporto, Mossoró - RN, 59607-000
+    mapQuery: 'Av. Mota Neto, 497 - Aeroporto, Mossoró, RN',
     phones: [
       { display: '(84) 99898-0445', href: 'tel:+5584998980445' },
       { display: '(84) 3064-5999', href: 'tel:+558430645999' },
@@ -74,7 +74,7 @@ export default function Locations() {
                   title={`Mapa da filial ${city}`}
                   allowFullScreen
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-t from-gray-900/40 to-transparent pointer-events-none" />
                 <div className="absolute top-4 left-4 bg-[#F5B800] px-3 py-1.5 rounded-md pointer-events-none">
                   <span className="text-xs font-bold text-gray-900 uppercase tracking-wide">
                     {city}, {state}

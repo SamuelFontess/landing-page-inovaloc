@@ -1,41 +1,62 @@
-const LOGOS = [
-  'Construtora Nordeste',
-  'LogTech Brasil',
-  'Grupo Atlas',
-  'Minera Engenharia',
-  'Fortline',
-  'Nordvias',
-  'Delta Construções',
-  'Apex Industrial',
+'use client'
+
+import Marquee from 'react-fast-marquee'
+import Image from 'next/image'
+
+type Logo = {
+  src:        string
+  alt:        string
+  w:          number
+  h:          number
+  imgClass?:  string
+  coverPos?:  string
+}
+
+const LOGOS: Logo[] = [
+  { src: '/logos/alianca-logo.png',           alt: 'Aliança Energia',    w: 637,  h: 163 },
+  { src: '/logos/bravaenergia-logo.png',      alt: 'Brava Energia',      w: 1101, h: 373 },
+  { src: '/logos/petroreconcavo-logo.png',    alt: 'PetroRecôncavo',     w: 600,  h: 338 },
+  { src: '/logos/voltalia-logo.png',          alt: 'Voltalia',           w: 285,  h: 177 },
+  { src: '/logos/prf-logo.png',               alt: 'PRF',                w: 600,  h: 367 },
+  {
+    src: '/logos/uninassau-logo.png',
+    alt: 'Uninassau',
+    w: 600, h: 600,
+    imgClass: 'h-16 sm:h-20 w-auto object-contain',
+  },
+  {
+    src: '/logos/prefeituramossoro-logo.png',
+    alt: 'Prefeitura Mossoró',
+    w: 900, h: 900,
+    imgClass: 'h-16 sm:h-20 w-auto object-contain',
+  },
+  { src: '/logos/atacadao-logo.png', alt: 'Atacadão', w: 400, h: 400 },
 ]
 
 export default function TrustedBy() {
-  const doubled = [...LOGOS, ...LOGOS]
-
   return (
-    <section className="bg-white border-y border-gray-100 py-14 overflow-hidden">
+    <section className="bg-white border-y border-gray-100 py-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
         <p className="text-center text-xs font-medium text-gray-400 uppercase tracking-widest">
           Empresas que confiam na InovaLoc
         </p>
       </div>
 
-      <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-
-        <div className="flex animate-marquee">
-          {doubled.map((name, i) => (
-            <div key={`${name}-${i}`} className="flex-shrink-0 mx-3">
-              <div className="px-7 py-3.5 border border-gray-200 rounded-lg bg-white hover:border-gray-300 transition-colors cursor-default">
-                <span className="text-sm font-semibold text-gray-400 select-none whitespace-nowrap">
-                  {name}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <Marquee gradient gradientColor="white" gradientWidth={80} speed={40} pauseOnHover>
+        {LOGOS.map((logo) => (
+          <div key={logo.alt} className="flex items-center px-8 sm:px-12">
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              width={logo.w}
+              height={logo.h}
+              sizes="(max-width: 640px) 200px, 320px"
+              className={logo.imgClass ?? 'h-11 sm:h-14 w-auto object-contain'}
+              style={logo.coverPos ? { objectPosition: logo.coverPos } : undefined}
+            />
+          </div>
+        ))}
+      </Marquee>
     </section>
   )
 }

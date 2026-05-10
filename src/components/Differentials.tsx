@@ -1,65 +1,35 @@
+import { Layers, TrendingDown, Timer, Leaf, Lock, Headphones, ArrowRight } from 'lucide-react'
+
 const ITEMS = [
   {
     title: 'Flexibilidade de uso',
     description: 'Adapte o container para qualquer finalidade: almoxarifado, escritório, banheiro, guarita ou eventos. Mude o propósito conforme a demanda, sem obra ou burocracia.',
-    icon: (
-      <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
-        <rect x="3" y="3" width="9" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.7"/>
-        <rect x="16" y="3" width="9" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.7"/>
-        <rect x="3" y="16" width="9" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.7"/>
-        <rect x="16" y="16" width="9" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.7"/>
-      </svg>
-    ),
+    icon: <Layers size={26} />,
   },
   {
     title: 'Redução de custos',
     description: 'Pague apenas pelo período de uso. Sem compra, sem manutenção e sem imobilização de capital — uma escolha muito mais eficiente do que qualquer construção tradicional.',
-    icon: (
-      <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
-        <circle cx="14" cy="14" r="10" stroke="currentColor" strokeWidth="1.7"/>
-        <path d="M14 8v1.5M14 18.5V20M10.5 11.5c0-1.38 1.57-2.5 3.5-2.5s3.5 1.12 3.5 2.5c0 2.5-7 2.5-7 5 0 1.38 1.57 2.5 3.5 2.5s3.5-1.12 3.5-2.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <TrendingDown size={26} />,
   },
   {
     title: 'Instalação imediata',
     description: 'O container está operacional quase que imediatamente após a entrega. Sem longos trâmites ou esperas — sua operação começa no menor tempo possível.',
-    icon: (
-      <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
-        <circle cx="14" cy="14" r="10" stroke="currentColor" strokeWidth="1.7"/>
-        <path d="M14 8v6l4 2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <Timer size={26} />,
   },
   {
     title: 'Sustentabilidade',
     description: 'Ao alugar, você reutiliza infraestrutura existente, evita construções fixas desnecessárias e reduz resíduos — contribuindo para um futuro mais consciente.',
-    icon: (
-      <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
-        <path d="M14 4C8.48 4 4 8.48 4 14s4.48 10 10 10 10-4.48 10-10S19.52 4 14 4z" stroke="currentColor" strokeWidth="1.7"/>
-        <path d="M9 14c1-3 3-5 5-5s4 2 4 5-2 5-4 5-4-2-5-5z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <Leaf size={26} />,
   },
   {
-    title: 'Atendimento Personalizado',
-    description: 'Consultores especializados analisam cada projeto e propõem a solução mais adequada para a sua operação.',
-    icon: (
-      <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
-        <path d="M5 22v-1a7 7 0 017-7h4a7 7 0 017 7v1" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
-        <circle cx="14" cy="9" r="5" stroke="currentColor" strokeWidth="1.7"/>
-      </svg>
-    ),
+    title: 'Segurança',
+    description: 'A estrutura em aço resistente do container mantém seus equipamentos e materiais protegidos contra furtos e intempéries.',
+    icon: <Lock size={26} />,
   },
   {
     title: 'Suporte Técnico',
     description: 'Nossa equipe técnica atende durante toda a vigência do contrato, com resposta rápida para qualquer necessidade.',
-    icon: (
-      <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
-        <path d="M14 3v5M14 20v5M5.22 5.22l3.54 3.54M19.24 19.24l3.54 3.54M3 14h5M20 14h5M5.22 22.78l3.54-3.54M19.24 8.76l3.54-3.54" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
-        <circle cx="14" cy="14" r="4" stroke="currentColor" strokeWidth="1.7"/>
-      </svg>
-    ),
+    icon: <Headphones size={26} />,
   },
 ]
 
@@ -112,9 +82,7 @@ export default function Differentials() {
             className="shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-[#F5B800] text-gray-900 font-semibold rounded-lg hover:bg-[#e0a800] transition-colors whitespace-nowrap"
           >
             Solicitar agora
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <ArrowRight size={14} />
           </a>
         </div>
 

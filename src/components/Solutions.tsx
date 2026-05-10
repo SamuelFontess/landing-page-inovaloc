@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 
 type Spec  = { label: string; value: string }
@@ -24,7 +25,7 @@ const PANELS: Panel[] = [
       { label: 'Largura',     value: '1,60 m' },
       { label: 'Altura',      value: '2,10 m' },
     ],
-    images: ['/express.png', '/express2.png'],
+    images: ['/products/express.png', '/products/express2.png'],
   },
   {
     id:          'hc-almoxarifado',
@@ -36,7 +37,7 @@ const PANELS: Panel[] = [
       { label: 'Largura',     value: '2,50 m' },
       { label: 'Altura',      value: '2,90 m' },
     ],
-    images: ['/hc-almoxarifado-1.png', '/hc-almoxarifado-2.png', '/hc-almoxarifado-3.jpg'],
+    images: ['/products/hc-almoxarifado-1.png', '/products/hc-almoxarifado-2.png', '/products/hc-almoxarifado-3.jpg'],
   },
   {
     id:          'escritorio-hc',
@@ -49,7 +50,7 @@ const PANELS: Panel[] = [
       { label: 'Altura',      value: '2,90 m' },
       { label: 'Ar-cond.',    value: '12.000 BTUs' },
     ],
-    images: ['/escritorio-hc-1.png', '/escritorio-hc-2.png', '/escritorio-hc-3.jpeg', '/escritorio-hc-4.jpeg'],
+    images: ['/products/escritorio-hc-1.png', '/products/escritorio-hc-2.png', '/products/escritorio-hc-3.jpeg', '/products/escritorio-hc-4.jpeg'],
   },
   {
     id:          'escritorio-wc-hc',
@@ -62,7 +63,7 @@ const PANELS: Panel[] = [
       { label: 'Altura',      value: '2,90 m' },
       { label: 'Ar-cond.',    value: '12.000 BTUs' },
     ],
-    images: ['/escritorio-wc-hc-1.png', '/escritorio-wc-hc-2.png', '/escritorio-wc-hc-3.jpeg', '/escritorio-wc-hc-4.jpeg'],
+    images: ['/products/escritorio-wc-hc-1.png', '/products/escritorio-wc-hc-2.png', '/products/escritorio-wc-hc-3.jpeg', '/products/escritorio-wc-hc-4.jpeg'],
   },
   {
     id:          'venda-hc',
@@ -73,7 +74,7 @@ const PANELS: Panel[] = [
       { label: '20 Pés', value: '6,00 m' },
       { label: '40 Pés', value: '12,00 m' },
     ],
-    images: ['/venda-hc-1.png', '/venda-hc-2.jpeg'],
+    images: ['/products/venda-hc-1.png', '/products/venda-hc-2.jpeg'],
   },
 ]
 
@@ -128,12 +129,14 @@ export default function Solutions() {
             return (
               <div onClick={handleTap} className="relative overflow-hidden rounded-2xl bg-zinc-900 cursor-pointer" style={{ height: 440 }}>
                 {panel.images.map((src, i) => (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img key={src} src={src} alt={panel.title}
-                    className={`absolute inset-0 w-full h-full object-contain p-6 transition-opacity duration-500 ${i === currentImg ? 'opacity-100' : 'opacity-0'}`}
-                  />
+                  <div
+                    key={src}
+                    className={`absolute inset-6 transition-opacity duration-500 ${i === currentImg ? 'opacity-100' : 'opacity-0'}`}
+                  >
+                    <Image src={src} alt={panel.title} fill style={{ objectFit: 'contain' }} sizes="100vw" />
+                  </div>
                 ))}
-                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent" />
+                <div className="absolute inset-0 pointer-events-none bg-linear-to-t from-zinc-950/90 via-zinc-950/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   {panel.images.length > 1 && (
                     <div className="flex gap-1.5 mb-4">
@@ -186,19 +189,24 @@ export default function Solutions() {
               >
                 {/* ── Images ── */}
                 {panel.images.map((src, i) => (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img
+                  <div
                     key={src}
-                    src={src}
-                    alt={panel.title}
-                    className={`absolute inset-0 w-full h-full object-contain transition-all duration-500
-                      ${isActive ? 'opacity-100 scale-100 p-8' : 'opacity-40 scale-105 p-4'}
-                      ${i === currentImg ? '' : '!opacity-0'}`}
-                  />
+                    className={`absolute transition-all duration-500
+                      ${isActive ? 'opacity-100 scale-100 inset-8' : 'opacity-40 scale-105 inset-4'}
+                      ${i === currentImg ? '' : 'opacity-0!'}`}
+                  >
+                    <Image
+                      src={src}
+                      alt={panel.title}
+                      fill
+                      style={{ objectFit: 'contain' }}
+                      sizes="(max-width: 1280px) 50vw, 640px"
+                    />
+                  </div>
                 ))}
 
                 {/* ── Gradient overlay ── */}
-                <div className={`absolute inset-0 pointer-events-none transition-all duration-700 bg-gradient-to-t ${isActive ? 'from-zinc-950/90 via-zinc-950/20 to-transparent' : 'from-zinc-950/80 via-zinc-950/40 to-zinc-950/20'}`} />
+                <div className={`absolute inset-0 pointer-events-none transition-all duration-700 bg-linear-to-t ${isActive ? 'from-zinc-950/90 via-zinc-950/20 to-transparent' : 'from-zinc-950/80 via-zinc-950/40 to-zinc-950/20'}`} />
 
                 {/* ── Inactive label ── */}
                 <div className={`absolute inset-0 flex flex-col justify-end p-5 transition-all duration-500 ${isActive ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
