@@ -42,19 +42,22 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(-14px); }
 }
 
 .animate-fadeUp  { opacity: 0; animation: fadeUp  0.6s ease forwards; }
-.animate-marquee {             animation: marquee 32s linear infinite; }
 .animate-float   {             animation: float   5s ease-in-out infinite; }
+
+/* ── Marquee logo sizes ──────────────────────────────────── */
+.logo-wide, .logo-cover { position: relative; width: 140px; height: 56px; margin: 0 20px; }
+.logo-square            { position: relative; width:  56px; height: 56px; margin: 0 20px; }
+
+@media (max-width: 640px) {
+  .logo-wide, .logo-cover { width: 90px; height: 36px; margin: 0 12px; }
+  .logo-square            { width: 36px; height: 36px; margin: 0 12px; }
+}
 
 .delay-100  { animation-delay: 100ms; }
 .delay-200  { animation-delay: 200ms; }
