@@ -2,7 +2,6 @@ const HIGHLIGHTS = [
   'Contratos flexíveis',
   'Atendimento consultivo',
   'Suporte técnico pós-locação',
-  'Personalização disponível',
 ]
 
 export default function About() {

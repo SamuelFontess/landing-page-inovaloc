@@ -20,10 +20,6 @@ const QUESTIONS = [
     a: 'Sim. Problemas de origem estrutural ou de instalações entregues pela InovaLoc são de nossa responsabilidade. Nossa equipe técnica atende em até 24h para reparos urgentes.',
   },
   {
-    q: 'É possível personalizar o container com a identidade visual da empresa?',
-    a: 'Sim. Oferecemos serviço de adesivagem, pintura, adaptações de layout e instalações específicas (ar-condicionado extra, divisórias, tomadas adicionais, etc.). Solicite a personalização no momento do orçamento.',
-  },
-  {
     q: 'Quais documentos são necessários para locação?',
     a: 'Para pessoa jurídica: contrato social, CNPJ, RG/CPF do representante legal e comprovante de endereço. Para pessoa física: RG, CPF e comprovante de renda. A análise de crédito é feita em até 2 horas.',
   },
