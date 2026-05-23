@@ -31,6 +31,13 @@ const LOGOS: Logo[] = [
     imgClass: 'h-16 sm:h-20 w-auto object-contain',
   },
   { src: '/logos/atacadao-logo.png', alt: 'Atacadão', w: 400, h: 400 },
+  { src: '/logos/banco-do-nordeste-logo.png', alt: 'Banco do Nordeste', w: 300, h: 108 },
+  {
+    src: '/logos/ambipar-logo.png',
+    alt: 'Ambipar',
+    w: 178, h: 212,
+    imgClass: 'h-16 sm:h-20 w-auto object-contain',
+  },
 ]
 
 export default function TrustedBy() {
