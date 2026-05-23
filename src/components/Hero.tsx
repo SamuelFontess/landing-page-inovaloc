@@ -2,8 +2,10 @@ import Image from 'next/image'
 
 export default function Hero() {
   return (
-    <section id="inicio" className="min-h-screen flex items-center bg-white pt-[72px] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+    <section id="inicio" className="min-h-screen flex items-center bg-white pt-[72px] overflow-hidden relative">
+
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
 
           {/* ── Left: text ─────────────────────────────── */}
@@ -14,7 +16,7 @@ export default function Hero() {
             </h1>
 
             <p className="animate-fadeUp delay-100 text-lg text-gray-500 leading-relaxed mb-10 max-w-lg">
-              Locação rápida e segura para escritório, almoxarifado, refrigerados e
+              Locação rápida e segura para escritório, almoxarifado e
               banheiros modulares — para empresas de todos os portes no RN.
             </p>
 
@@ -37,8 +39,27 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* ── Right: container ───────────────────────── */}
-          <div className="animate-fadeUp delay-300 flex items-center justify-center">
+          {/* ── Mobile: container below text ───────────────── */}
+          <div className="lg:hidden animate-fadeUp delay-200">
+            <div className="relative w-full aspect-[16/9]">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-3/4 h-3/4 rounded-full bg-amber-100 blur-3xl opacity-70" />
+              </div>
+              <Image
+                src="/products/container.png"
+                alt="Container InovaLoc"
+                fill
+                priority
+                className="object-contain object-center"
+                style={{
+                  filter: 'drop-shadow(0 16px 32px rgba(0,0,0,0.14)) drop-shadow(0 4px 10px rgba(245,184,0,0.22))',
+                }}
+              />
+            </div>
+          </div>
+
+          {/* ── Right: container (desktop only) ───────────── */}
+          <div className="hidden lg:flex animate-fadeUp delay-300 items-center justify-center">
             <div className="animate-float relative w-full max-w-[520px]">
               <Image
                 src="/products/container.png"
@@ -62,5 +83,6 @@ export default function Hero() {
         </div>
       </div>
     </section>
+
   )
 }
